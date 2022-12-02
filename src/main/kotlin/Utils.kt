@@ -3,6 +3,7 @@ import java.security.MessageDigest
 
 fun readStrings(name: String) = object {}::class.java.getResource("$name.txt")!!
     .readText()
+    .trim()
     .lines()
 
 fun readInts(name: String) = readStrings(name).map { it.toInt() }
