@@ -1,9 +1,9 @@
 import java.math.BigInteger
 import java.security.MessageDigest
 
-fun readStrings(name: String) = object {}::class.java.getResource("$name.txt")!!
+fun readStrings(name: String, trim: Boolean = true) = object {}::class.java.getResource("$name.txt")!!
     .readText()
-    .trim()
+    .let { if (trim) it.trim() else it }
     .lines()
 
 fun readInts(name: String) = readStrings(name).map { it.toInt() }
